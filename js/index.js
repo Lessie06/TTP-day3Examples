@@ -103,3 +103,42 @@ function test1(name1){
     alert("today " + name1)
 }
 
+document.getElementById("myForm").addEventListener("submit", function(event){
+     /*we want to get a value that has been submitted from the form
+    */
+//    the following line gets a value from the input field.
+    let username = document.getElementById("username").value;
+    // console.log(username.length);
+    // username = username.trim();
+    if(username == "" || username.length == 0){
+        alert("please enter a valid username");
+        document.getElementById("username").style.border = "red";
+    }
+    else{
+        document.getElementById("username").style.backgroundColor = "white";
+
+    }
+    let confirmPassword = document.getElementById("confirmpassword").value;
+    let password = document.getElementById("password").value;
+
+    password = password.trim();
+    confirmPassword = confirmPassword.trim();
+
+    if (password !== confirmPassword){
+        document.getElementById("password").style.border = " thick solid red";
+        document.getElementById("confirmpassword").style.border = "thick solid red";
+        alert("The passwords you entered do not match.")
+    }
+    else{
+        document.getElementById("password").style.border = " 1px solid gray";
+        document.getElementById("confirmpassword").style.border = "1px solid gray"
+
+    }
+
+
+    alert(username);
+    event.preventDefault();
+
+   
+});
+
